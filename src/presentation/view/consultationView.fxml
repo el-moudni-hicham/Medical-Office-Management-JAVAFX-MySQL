@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="956.0" style="-fx-background-color: #f3fcfb;" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.ConsultationController">
+    <top>
+        <VBox alignment="BOTTOM_LEFT" prefHeight="219.0" prefWidth="801.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="TOP_LEFT" prefHeight="38.0" prefWidth="650.0" text="Consultations">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin></Label>
+                <GridPane prefHeight="166.0" prefWidth="771.0" style="-fx-border-color: black;">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="149.0" />
+                        <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="256.0" minWidth="0.0" prefWidth="181.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="218.0" />
+                        <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="201.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="69.0" text="Patient" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="66.0" text="Medecin">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="121.0" text="Date de consultation" GridPane.columnIndex="2">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <JFXDatePicker fx:id="txtDate" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#addConsultation" prefHeight="27.0" prefWidth="73.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-background-color: transparent;" text="Ajouter" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <JFXComboBox fx:id="txtMedecin" prefHeight="25.0" prefWidth="162.0" GridPane.columnIndex="1" />
+                  <JFXComboBox fx:id="txtPatient" prefHeight="25.0" prefWidth="162.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="20.0" />
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="357.0" prefWidth="946.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="48.0" prefWidth="771.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#deleteConsultation" text="Supprimer">
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <TableView fx:id="consultationTableView" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="193.0" prefWidth="926.0">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="195.0" text="NUMERO CONSULTATION" />
+                        <TableColumn fx:id="colMedecin" prefWidth="202.0" text="MEDECIN" />
+                  <TableColumn fx:id="colPatient" prefWidth="213.0" text="PATIENT" />
+                  <TableColumn fx:id="colDate" prefWidth="315.0" text="DATE CONSULTATION" />
+                    </columns>
+                </TableView>
+            </children>
+            <BorderPane.margin>
+                <Insets right="10.0" top="10.0" />
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="956.0" style="-fx-background-color: #f3fcfb;" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.MedecinController">
+    <top>
+        <VBox alignment="BOTTOM_LEFT" prefHeight="219.0" prefWidth="801.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="TOP_LEFT" prefHeight="38.0" prefWidth="650.0" text="Medecins">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin></Label>
+                <GridPane prefHeight="166.0" prefWidth="771.0" style="-fx-border-color: black;">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="113.0" />
+                        <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="256.0" minWidth="0.0" prefWidth="198.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="200.0" />
+                        <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="235.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="17.0" prefWidth="47.0" text="Nom">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="48.0" text="Prenom" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="133.0" text="Numero de Telephone" GridPane.columnIndex="2">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="122.0" text="Email" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <JFXTextField fx:id="txtNom" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="1" />
+                        <JFXTextField fx:id="txtPrenom" prefHeight="25.0" prefWidth="185.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXTextField fx:id="tstTele" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="3" />
+                        <JFXTextField fx:id="txtEmail" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#addMedecin" prefHeight="27.0" prefWidth="77.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 30;" text="Ajouter" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="20.0" />
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="388.0" prefWidth="946.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="35.0" prefWidth="926.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#deleteMedecin" text="Supprimer">
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#consultationsOfMedecin" prefHeight="25.0" prefWidth="100.0" text="Consultations">
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Label prefHeight="17.0" prefWidth="82.0" text="Recherche">
+                            <HBox.margin>
+                                <Insets left="180.0" />
+                            </HBox.margin>
+                            <padding>
+                                <Insets right="20.0" />
+                            </padding>
+                        </Label>
+                        <JFXTextField prefHeight="18.0" prefWidth="135.0">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </JFXTextField>
+                    </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+                </HBox>
+                <TableView fx:id="medecinsTableView" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="231.0" prefWidth="926.0">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="171.0" text="NUMERO DE MEDECIN" />
+                        <TableColumn fx:id="colNom" prefWidth="170.0" text="NOM" />
+                  <TableColumn fx:id="colPrenom" prefWidth="170.0" text="PRENOM" />
+                  <TableColumn fx:id="colTelephone" prefWidth="203.0" text="TELEPHONE" />
+                  <TableColumn fx:id="colEmail" prefWidth="211.0" text="EMAIL" />
+                    </columns>
+                </TableView>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Consultations">
+                     <font>
+                        <Font name="Bell MT Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="consultationsListView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="179.0" prefWidth="307.0" />
+               </children>
+            </VBox>
+            </children>
+            <BorderPane.margin>
+                <Insets right="10.0" top="10.0" />
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="956.0" style="-fx-background-color: #f3fcfb;" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.controllers.PatientsController">
+   <top>
+      <VBox alignment="BOTTOM_LEFT" prefHeight="219.0" prefWidth="801.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_LEFT" prefHeight="38.0" prefWidth="650.0" text="Patients">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin></Label>
+            <GridPane prefHeight="176.0" prefWidth="916.0" style="-fx-border-color: black;">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="113.0" />
+                <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="256.0" minWidth="0.0" prefWidth="198.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="200.0" />
+                  <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="235.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="47.0" text="Nom">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_LEFT" prefHeight="17.0" prefWidth="48.0" text="Prenom" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="45.0" text="CIN" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="133.0" text="Numero de Telephone" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="122.0" text="Email" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="123.0" text="Date de naissance" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="txtNom" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="1" />
+                  <JFXTextField fx:id="txtPrenom" prefHeight="25.0" prefWidth="185.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <JFXTextField fx:id="txtCin" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <JFXTextField fx:id="txtTele" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="3" />
+                  <JFXTextField fx:id="txtEmail" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <JFXDatePicker fx:id="txtDate" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#addPatient" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black;" text="Ajouter" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="30.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="389.0" prefWidth="946.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="38.0" prefWidth="906.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#deletePatient" text="Supprimer">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#updatePatient" text="Modifier">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#consultationOfPatient" prefHeight="25.0" prefWidth="100.0" text="Consultations">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label prefHeight="17.0" prefWidth="82.0" text="Recherche">
+                     <HBox.margin>
+                        <Insets left="180.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextField fx:id="txtRecherche" prefHeight="18.0" prefWidth="135.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+            <TableView fx:id="patientsTableView" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="266.0" prefWidth="926.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="137.0" text="NUMERO DE PATIENT" />
+                <TableColumn fx:id="colNom" prefWidth="84.0" text="NOM" />
+                  <TableColumn fx:id="colPrenom" prefWidth="89.0" text="PRENOM" />
+                  <TableColumn fx:id="colCin" prefWidth="102.0" text="CIN" />
+                  <TableColumn fx:id="colTelephone" prefWidth="144.0" text="TELEPHONE" />
+                  <TableColumn fx:id="colEmail" prefWidth="147.0" text="EMAIL" />
+                  <TableColumn fx:id="colDateNaissance" prefWidth="222.0" text="DATE DE NAISSANCE" />
+              </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TableView>
+            <VBox>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Label fx:id="txtConslt" text="Consultations" visible="false">
+                     <font>
+                        <Font name="Bell MT Bold" size="16.0" />
+                     </font></Label>
+                  <ListView fx:id="consultationsListView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="141.0" prefWidth="407.0" visible="false" />
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
